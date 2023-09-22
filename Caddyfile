@@ -1,0 +1,37 @@
+{
+        #       debug
+}
+
+(cors) {
+        @origin header Origin {args[0]}
+        header @origin Access-Control-Allow-Origin "{args[0]}"
+        header @origin Access-Control-Allow-Methods "{args[1]}"
+
+        # Valid Options are
+        # "OPTIONS,HEAD,GET,POST,PUT,PATCH,DELETE"
+}
+
+domain.de {
+        import cors * "GET"
+        
+        root * /usr/share/caddy
+        
+        file_server {
+        }
+        
+        @webfinger-account {
+                method GET
+                path /.well-known/webfinger
+                query resource=acct:account@domain.de
+        }
+        
+        rewrite @webfinger-account /webfinger/account.json
+        
+        @webfinger-bccount {
+                method GET
+                path /.well-known/webfinger
+                query resource=acct:bccount@domain.de
+        }
+        
+        rewrite @webfinger-bccount /webfinger/bccount.json
+}
