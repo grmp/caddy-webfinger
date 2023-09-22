@@ -1,6 +1,6 @@
 # caddy-webfinger
-Simple Hosting of a Webfinger Endpoint
+Simple hosting of a Webfinger endpoint via Caddy.
 
-Main goal is to *only* provide the Webfinger Endpoint in the most basic way: With files.
+The main goal is to deploy the Webfinger endpoint in the simplest way: With files.
 
-I needed a simple solution to provide a WebFinger Endpoint for usage with the OIDC setup of [Tailscale](https://tailscale.com/).
+I needed a simple solution to deploy a WebFinger endpoint for use in the OIDC setup of [Tailscale](https://tailscale.com/) and connect to [Citadel](https://zitadel.com/).
